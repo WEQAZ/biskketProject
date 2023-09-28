@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Pangolin:wght@100;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=VT323:wght@100;400&display=swap');
+
+.mainPostContainer {
+    margin: auto;
+    width: 1920px;
+    height: 1080px;
+    background-color: rgba(245, 234, 220, 1);
+}
+
+.mainToolBar {
+    background-image: url(./picture/toolBar.png);
+    width: 1920px;
+    height: 225px;
+    position: fixed;
+    margin-top: 0;
+    margin-left: 0;
+    display: inline;
+}
+
+.mainTextPangolin {
+    color: #553D2D;
+    font-family: 'Pangolin', sans-serif;
+    padding-top: 5px;
+}
+
+.mainTextPangolinUsr {
+    color: #553D2D;
+    font-family: 'Pangolin', sans-serif;
+    padding-top: 33px;
+    padding-left: 10px;
+}
+
+
+.mainTextPangolinUser {
+    color: #553D2D;
+    font-family: 'Pangolin', sans-serif;
+    font-size: 36px;
+}
+
+.mainTextPangolinCaption {
+    color: #553D2D;
+    font-family: 'Pangolin', sans-serif;
+    font-size: 22px;
+    padding-top: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.mainTextPangolinLike {
+    color: #C52F2F;
+    font-family: 'Pangolin', sans-serif;
+    font-size: 32px;
+}
+
+.mainTextVT323 {
+    color: #553D2D;
+    font-family: 'VT323', sans-serif;
+    font-size: 72px;
+    padding-top: 20px;
+  
+}
+
+.mainLogo {
+    width: 385px;
+    height: 90px;
+    border-radius: 20px;
+    border: 10px solid #F5F5F5;
+    background: #EFD3B4;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    position: absolute;
+    margin-top: 68px;
+    margin-left: 86px;
+    font-size: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.mainButtonToProfile {
+    width: 416px;
+    height: 89px;
+    border-radius: 55.5px;
+    background: #FFF;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    position: absolute;
+    margin-top: 68px;
+    margin-left: 1412px;
+    font-size: 48px;
+    padding-bottom: 25px;
+    display: flex;
+    align-items: last baseline;
+    justify-content: center;
+    text-align: center;
+    gap: 20;
+}
+
+.mainFeatureBar {
+    position: fixed;
+    width: 470px;
+    height: 783px;
+    padding-top: 72px;
+    margin-top: 125px;
+    margin-left: 1450px;
+    /* background-color:blueviolet; */
+
+}
+
+.mainArea {
+    padding-top: 100px;
+}
+
+.mainButtonToNext {
+    width: 330px;
+    height: 91px;
+    border-radius: 20px;
+    border: 10px solid #D3BA9F;
+    background: #FFF;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    gap: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 42px;
+    margin-bottom: 50px
+}
+
+.mainScrollArea {
+    width: 1448px;
+    padding-top: 72px;
+    margin-top: 125px;
+    padding-left: 3px;
+    position: relative;
+    /* background-color: aquamarine; */
+}
+
+.mainPostPic {
+    left: 84px;
+    width: 766px;
+    height: 470px;
+    border: 17px solid #D3BA9F;
+    background: #FFF;
+    display: flex;
+    position: relative;
+    margin-bottom: 46px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.mainPostText {
+    left: 84px;
+    width: 766px;
+    height: 470px;
+    border: 17px solid #D3BA9F;
+    background: #FFF;
+    display: flex;
+    position: relative;
+    margin-bottom: 46px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.mainPostProfile {
+    width: 474px;
+    height: 470px;
+    border: 17px solid #D3BA9F;
+    background: #FFF;
+    margin-left: 862px;
+    margin-top: -548px;
+    margin-bottom: 46px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.mainUserPic {
+    padding-top: 85px;
+    padding-bottom: 10px;
+}
+
+.mainUserLikePost {
+    padding-top: 75px;
+    padding-left: 30px;
+    align-items: center;
+    display: flex;
+    gap: 10px;
+    /* background-color: brown; */
+}
+
+.mainUserLikeText {
+    padding-top: 138px;
+    padding-left: 30px;
+    align-items: center;
+    display: flex;
+    gap: 10px;
+    /* background-color: brown; */
+}

@@ -1,0 +1,80 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Pangolin&family=VT323&display=swap');
+
+
+.homeBackground {
+    background-image: url(./picture/cookieBG.jpg);
+    margin: auto;
+    width: 1920px;
+    height: 1080px;
+    flex-shrink: 0;
+}
+
+
+.homeWelcomeText {
+    position: relative;
+    color: #FFF0E7;
+    text-align: center;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: VT323;
+    font-size: 200px;
+    font-style: normal;
+    font-weight: 500px;
+    line-height: 180px;
+    -webkit-text-stroke-width: 4px;
+    -webkit-text-stroke-color: black;
+    border: 9px;
+    
+}
+
+.homeBiskketLogo {
+    position: relative;
+    color: #553D2D;
+    font-family: Pangolin;
+    font-size: 72px;
+}
+
+.homeLogoBox {
+    width: 416px;
+    height: 111px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    border: 10px solid #F5F5F5;
+    background: #EFD3B4;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    position: absolute;
+    top: 57px;
+    left: 111px;
+    display: flex;
+}
+
+.homeLoginBox {
+    width: 416px;
+    height: 111px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    border: 10px solid #F5F5F5;
+    background: #EFD3B4;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    position: absolute;
+    top: 57px;
+    left: 1380px;
+    display: flex;
+}
+
+
+.homeLogoName {
+    position: relative;
+    top: 73px;
+    left: 150px;
+}
+
+.homeLogin {
+    color: #553D2D;
+    left: 1494px;
+    top: -24px;
+    font-family: Pangolin;
+    font-size: 72px;
+    position: relative;
+    cursor: pointer;
+}
