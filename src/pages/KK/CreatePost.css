@@ -1,0 +1,172 @@
+.CreatePostContainer {
+    margin: auto;
+    position: relative;
+    width: 1980px;
+    height: 1080px;
+    background-color: #F5EADC;
+}
+
+.CreatePostCookie {
+    width: 1980px;
+    height: 225px;
+    background-image: url('HomeCookie.jpg');
+    background-size: cover;
+    background-position: 15% 42%;
+    background-repeat: no-repeat;
+}
+
+.CreatePostLogoBox {
+    width: 416px;
+    height: 111px;
+    border-radius: 20px;
+    border: 10px solid #F5F5F5;
+    background: #EFD3B4;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    position: absolute;
+    top: 57px; 
+    left: 111px; 
+    z-index: 2; 
+}
+
+.CreatePostHomeBox {
+    width: 346px;
+    height: 117px;
+    border-radius: 58.5px;
+    background: #FFF;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    position: absolute;
+    top: 54px;
+    right: 54px;
+}
+
+.CreatePostLogo {
+    width: 125px;
+    height: 99px;
+    position: absolute;
+    top: 70px; 
+    left: 120px; 
+    z-index: 3; 
+}
+
+.BiskketText {
+    width: 391px;
+    height: 79px;
+    position: absolute;
+    color: #553D2D;
+    font-family: 'Pangolin', cursive;
+    font-size: 72px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    top: 5px;
+    left: 250px;
+    z-index: 3; 
+}
+
+.CreatePostHome {
+    width: 71px;
+    height: 71px;
+    position: absolute;
+    top: 75px;
+    right: 275px;
+}
+
+.HomeText {
+    width: 154px;
+    height: 62px;
+    position: absolute;
+    color: #503A2B;
+    font-family: 'Pangolin', cursive;
+    font-family: 'VT323', monospace;
+    font-size: 72px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    top: 7px;
+    right: 95px;
+}
+
+.CreatePostWhiteBox {
+        width: 613px;
+        height: 690px; 
+        position: absolute;
+        background-color: #FFF;
+        padding: 20px;
+        right: 652px;
+        top: 297px;
+}
+
+.CreatePostText {
+    width: 408px;
+    height: 117px;
+    position: absolute;
+    color: #503A2B;
+    text-align: center;
+    font-family: 'Pangolin', cursive;
+    font-family: 'VT323', monospace;
+    font-size: 72px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    right: 775px;
+    top: 297px;
+}
+
+.WritePostBox {
+    width: 527px;
+    height: 391px;
+    position: absolute;
+    background: #FFF;
+    box-shadow: 1px 1px 4px 6px rgba(0, 0, 0, 0.25) inset;
+    right: 713px;
+    top: 480px;
+}
+
+.CreatePostPencil {
+    width: 86px;
+    height: 85px;
+    position: absolute;
+    left: 780px;
+    top: 620px;
+}
+
+.WriteYourPost {
+    width: 366px;
+    height: 67px;
+    position: absolute;
+    color: rgba(80, 58, 43, 0.41);
+    text-align: center;
+    font-family: 'Pangolin', cursive;
+    font-size: 52px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    left: 860px;
+    top: 580px;
+}
+
+.CreatePostButton {
+    width: 455px;
+    height: 68px;
+    position: absolute;
+    border-radius: 34px;
+    background: #EFD3B4;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    left: 780px;
+    top: 920px;
+}
+
+.CreatePostButtonText {
+    width: 161px;
+    height: 51px;
+    position: absolute;
+    color: #503A2B;
+    text-align: center;
+    font-family: 'Pangolin', cursive;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    left: 930px;
+    top: 880px;
+}

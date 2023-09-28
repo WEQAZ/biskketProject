@@ -1,0 +1,96 @@
+.signinBackGround{
+    background-image: url(./picture/cookieBG.jpg);
+    margin: auto;
+    width: 1920px;
+    height: 1080px;
+    flex-shrink: 0;
+}
+
+.signinBiskketLogo{
+    position: absolute;
+    width: 391px;
+    height: 79px;
+    flex-shrink: 0;
+    color: #553D2D;
+    text-align: center;
+    font-family: Pangolin;
+    font-size: 72px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+   
+}
+
+.signinLogoBox{
+    position:relative;
+    width: 416px;
+    height: 111px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    border: 10px solid #F5F5F5;
+    background: #EFD3B4;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    top: 57px;
+    left: 111px;
+    
+
+}
+
+.signinBox{
+    position: relative;
+    width: 656px;
+height: 880px;
+flex-shrink: 0;
+border-radius: 90px;
+border: 20px solid #F5F5F5;
+background: #EFD3B4;
+box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+left: 632px;
+}
+
+.signinText{
+    position: absolute;
+    color: #553D2D;
+text-align: center;
+font-family: VT323;
+font-size: 64px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+color: #553D2D;
+font-family: VT323;
+font-size: 65px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+width: 510px;
+height: 167px;
+top: 300px;
+left: 90px;
+}
+
+.signinGoogle {
+    position: relative;
+    top: 500px;
+    left: 190px;
+    width: 300px;
+    height: 75px;
+    border-radius: 20px;
+border: 5px solid #F5F5F5;
+background: #EFD3B4;
+box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+color: #553D2D;
+text-align: center;
+font-family: Pangolin;
+font-size: 35px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+cursor: pointer;
+}
+
+.signinLogo{
+    position: relative;
+    left: 246px;
+    top: 130px;
+}
