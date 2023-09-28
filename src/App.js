@@ -20,15 +20,11 @@ function App() {
     <Routes>
       <Route path='/' element={<Home/>}></Route>
       <Route path='SignIn' element={<SignIn/>}> </Route>
-
       <Route path='MainPost' element={<MainPost/>}> </Route>
-
       <Route path='CreatePost' element={<CreatePost/>}> </Route>
       <Route path='FriendProfile' element={<FriendProfile/>}> </Route>
       <Route path='OwnProfile' element={<OwnProfile/>}> </Route>
       <Route path='PostPic' element={<PostPic/>}> </Route>
-      
-
       <Route path='*' element={<NotFound/>}></Route>
     </Routes>
    </BrowserRouter>

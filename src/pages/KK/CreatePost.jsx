@@ -3,6 +3,8 @@ import "./CreatePost.css"
 import logo from "../KK/assets/logo.png"
 import home from "../KK/assets/home.png"
 import pencil from "../KK/assets/pencil.png"
+import { Link } from "react-router-dom";
+
 
 const CreatePost = () => {
   return (
