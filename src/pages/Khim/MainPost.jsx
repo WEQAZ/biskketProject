@@ -1,6 +1,6 @@
-import React,{ useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import "./MainPost.css";
-import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 import biskketLogo from "./picture/mainLogo.png";
 import iconPencil from "./picture/pencil.png";
 import iconCamera from "./picture/camera.png";
@@ -10,9 +10,8 @@ import demoPic from "./picture/gallery-2.png";
 import userPic from "./picture/user.png";
 import heartPic from "./picture/heart.png";
 import { Link } from "react-router-dom";
-import firebaseApp from '../../config';
-import { getDatabase, ref, onValue } from 'firebase/database';
-
+import firebaseApp from "../../config";
+import { getDatabase, ref, onValue } from "firebase/database";
 
 const About = () => {
   const [username, setUsername] = useState(null);
@@ -31,7 +30,7 @@ const About = () => {
     });
 
     // Fetch posts from the database
-    const postsRef = ref(db, 'posts');
+    const postsRef = ref(db, "posts");
     onValue(postsRef, (snapshot) => {
       const data = snapshot.val();
       if (data) {
@@ -43,9 +42,12 @@ const About = () => {
     return () => unsubscribe();
   }, []);
 
-  return(
+  return (
     <div className="mainPostContainer">
       <div className="mainToolBar">
+        <div className="mainImg">
+          color
+        </div>
         <Link to="/">
           <div class="mainLogo">
             <img
@@ -79,7 +81,7 @@ const About = () => {
               </div>
             </Link>
 
-            <Link to="/PostPic" style={{textDecoration:"none"}}>
+            <Link to="/PostPic" style={{ textDecoration: "none" }}>
               <div className="mainButtonToNext">
                 <img
                   src={iconCamera}
@@ -100,7 +102,7 @@ const About = () => {
               />
               <div className="mainTextPangolin"> Post Video </div>
             </div>
-            
+
             <Link to="/FriendProfile" style={{ textDecoration: "none" }}>
               <div className="mainButtonToNext">
                 <img
@@ -133,15 +135,17 @@ const About = () => {
           </div> */}
 
           <div className="mainPostText">
-          {posts.map((post, index) => (
-          <div key={index} className="mainPostText">
-            <div className="mainTextPangolinUser">{post.user}</div>
-            <div className="mainTextPangolinCaption">{post.content}</div>
-            <div className="mainTextTimestamp">Posted at: {post.timestamp}</div>
+            {posts.map((post, index) => (
+              <div key={index} className="PostText">
+                <div className="mainTextPangolinUser">{post.user}</div>
+                <div className="mainTextPangolinCaption">{post.content}</div>
+                <div className="mainTextTimestamp">
+                  Posted at: {post.timestamp}
+                </div>
+              </div>
+            ))}
           </div>
-        ))}
-          </div>
-          <div className="mainPostProfile">
+          {/* <div className="mainPostProfile">
             <div className="mainUserPic">
               <img src={userPic} alt="user Pic" width="129px" height="129px" />
             </div>
@@ -150,11 +154,11 @@ const About = () => {
               <img src={heartPic} alt="like Pic" width="50px" height="50px" />
               <div className="mainTextPangolinLike">20 likes</div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
-  )
+  );
 };
 
 export default About;

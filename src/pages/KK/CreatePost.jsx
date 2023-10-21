@@ -28,6 +28,7 @@ const CreatePost = ({user, posts, setPosts}) => {
       // Clear the post content
       setPostContent('');
     }
+    
   };
   
   return (
