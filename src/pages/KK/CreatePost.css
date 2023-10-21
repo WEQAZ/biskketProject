@@ -170,3 +170,12 @@
     left: 930px;
     top: 880px;
 }
+
+textarea {
+    width: 515px;
+    height: 380px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    resize: none;
+    font-size: 25px;
+}

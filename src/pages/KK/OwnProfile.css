@@ -106,8 +106,8 @@
 }
 
 .UserText {
-    width: 279px;
-    height: 58px;
+    width: fit-content;
+    height: fit-content;
     position: absolute;
     color: #503A2B;
     text-align: center;

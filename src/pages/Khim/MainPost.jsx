@@ -46,7 +46,7 @@ const About = () => {
     <div className="mainPostContainer">
       <div className="mainToolBar">
         <div className="mainImg">
-          color
+          .
         </div>
         <Link to="/">
           <div class="mainLogo">
