@@ -9,14 +9,14 @@ const PostPic = () => {
   return (
     <div className="PostPicContainer">
       <div className="PostPicCookie"></div>
-      <Link to="/">
+      <Link to="/MainPost">
         <div className="PostPicLogoBox"></div>
         <div className="PostPictHomeBox"></div>
         <img className="PostPicLogo" src={logo}></img>
         <p class="BiskketText">BISKKET</p>
       </Link>
 
-      <Link to="/">
+      <Link to="/MainPost">
         <img className="PostPicHome" src={home}></img>
         <p class="HomeText">HOME</p>
       </Link>

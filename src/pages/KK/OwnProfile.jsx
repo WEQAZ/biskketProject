@@ -1,17 +1,37 @@
-import React from "react";
+import React, { useEffect, useState } from 'react';
 import "./OwnProfile.css";
 import logo from "../KK/assets/logo.png";
 import home from "../KK/assets/home.png";
 import userprofile from "../KK/assets/userprofile.png";
 import like from "../KK/assets/like.png";
 import { Link } from "react-router-dom";
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+
 
 const OwnProfile = () => {
+  const [username, setUsername] = useState(null);
+
+  useEffect(() => {
+    const auth = getAuth(); // Assuming you have initialized Firebase Auth in a central location.
+    
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // Assuming the user's username is stored in the user object's displayName.
+        const userUsername = user.displayName;
+        setUsername(userUsername);
+      } else {
+        setUsername(null);
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
+
   return (
     <div className="OwnProfileContainer">
       <div className="OwnProfileCookie"></div>
 
-      <Link to="/">
+      <Link to="/MainPost">
         <div className="OwnProfileLogoBox"></div>
         <div className="OwnProfileHomeBox"></div>
         <img className="OwnProfileLogo" src={logo}></img>
@@ -22,7 +42,7 @@ const OwnProfile = () => {
 
       <div className="UserBox"></div>
       <img className="UserImage" src={userprofile}></img>
-      <div className="UserText">username</div>
+      <div className="UserText">{username}</div>
       <div className="EditProfileButton"></div>
       <div className="EditProfileText">edit profile</div>
 

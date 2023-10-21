@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+import React, { useEffect, useState } from "react";
 import './App.css';
 import {
   BrowserRouter,
@@ -13,15 +13,40 @@ import CreatePost from './pages/KK/CreatePost'
 import FriendProfile from './pages/KK/FriendProfile'
 import OwnProfile from './pages/KK/OwnProfile'
 import PostPic from './pages/KK/PostPic'
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { initializeApp } from 'firebase/app';
 
-function App() {
+
+const App = () => {
+  const auth = getAuth();
+  const [user, setUser] = useState(null);
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    // Check if the user is already signed in
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setUser(user);
+    });
+
+    // Cleanup the subscription when the component unmounts
+    return () => unsubscribe();
+  }, [auth]);
+
+ 
+
   return (
    <BrowserRouter>
     <Routes>
       <Route path='/' element={<Home/>}></Route>
       <Route path='SignIn' element={<SignIn/>}> </Route>
-      <Route path='MainPost' element={<MainPost/>}> </Route>
-      <Route path='CreatePost' element={<CreatePost/>}> </Route>
+      <Route
+          path="/MainPost"
+          element={<MainPost user={user} posts={posts} />}
+        />
+        <Route
+          path="/CreatePost"
+          element={<CreatePost user={user} posts={posts} setPosts={setPosts} />}
+        />
       <Route path='FriendProfile' element={<FriendProfile/>}> </Route>
       <Route path='OwnProfile' element={<OwnProfile/>}> </Route>
       <Route path='PostPic' element={<PostPic/>}> </Route>
