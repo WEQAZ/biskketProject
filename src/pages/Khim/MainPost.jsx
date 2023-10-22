@@ -28,6 +28,7 @@ const About = () => {
         setUsername(null);
       }
     });
+    
 
     // Fetch posts from the database
     const postsRef = ref(db, "posts");
@@ -118,43 +119,18 @@ const About = () => {
         </div>
 
         <div className="mainScrollArea">
-          {/* <div className="mainPostPic">
-            
-          </div> */}
-          {/* <div className="mainPostProfile">
-            <div className="mainUserPic">
-              <img src={userPic} alt="user Pic" width="129px" height="129px" />
-            </div>
-            <div className="mainTextPangolinUser">username</div>
           
-          
-            <div className="mainUserLikePost">
-              <img src={heartPic} alt="like Pic" width="50px" height="50px" />
-              <div className="mainTextPangolinLike">10 likes</div>
-            </div>
-          </div> */}
+        <div className="mainPostText">
+  {posts.map((post, index) => (
+    <div key={index} className="PostText">
+      <div className="mainTextPangolinUser">{post.user}</div>
+      {post.mediaURL && <img src={post.mediaURL} alt="Posted Image" />}
+      <div className="mainTextPangolinCaption">{post.content}</div>
+      <div className="mainTextTimestamp">Posted at: {post.timestamp}</div>
+    </div>
+  ))}
+</div>
 
-          <div className="mainPostText">
-            {posts.map((post, index) => (
-              <div key={index} className="PostText">
-                <div className="mainTextPangolinUser">{post.user}</div>
-                <div className="mainTextPangolinCaption">{post.content}</div>
-                <div className="mainTextTimestamp">
-                  Posted at: {post.timestamp}
-                </div>
-              </div>
-            ))}
-          </div>
-          {/* <div className="mainPostProfile">
-            <div className="mainUserPic">
-              <img src={userPic} alt="user Pic" width="129px" height="129px" />
-            </div>
-            <div className="mainTextPangolinUser">username</div>
-            <div className="mainUserLikeText">
-              <img src={heartPic} alt="like Pic" width="50px" height="50px" />
-              <div className="mainTextPangolinLike">20 likes</div>
-            </div>
-          </div> */}
         </div>
       </div>
     </div>
