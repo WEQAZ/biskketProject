@@ -2,7 +2,7 @@
     margin: auto;
     position: relative;
     width: 1980px;
-    height: 1080px;
+    height: 2000px;
     background-color: #F5EADC;
 }
 
@@ -88,7 +88,7 @@
 
 .PostPicWhiteBox {
         width: 613px;
-        height: 690px; 
+        height: 2000px; 
         position: absolute;
         background-color: #FFF;
         padding: 20px;
@@ -182,3 +182,50 @@
     border: 8px solid #4E443AAB; 
 }
 
+.post-img-box {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    top: 250px;
+    width: 550px;
+    left: 730px;
+    text-decoration: none;
+
+}
+
+.post-img-box img {
+    max-height: min-content;
+    max-width: min-content;
+}
+
+.post-img-box textarea {
+    margin-top: 10px;
+    height: fit-content;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    resize: none;
+    font-size: 25px;
+}
+
+.post-img-box input {
+    margin-top: 5px;
+        background-color: #EFD3B4;
+        padding: 10px;
+        border: 1px solid #553D2D;
+        border-radius: 5px;
+        cursor: pointer;
+}
+
+.post-img-box button {
+    margin-top: 5px;
+    color: #503A2B;
+    font-family: 'Pangolin', cursive;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    background-color: #EFD3B4;
+    border: 1px solid #553D2D;
+    cursor: pointer;
+    width: 550px;
+}

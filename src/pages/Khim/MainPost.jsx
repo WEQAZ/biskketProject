@@ -35,7 +35,7 @@ const About = () => {
     onValue(postsRef, (snapshot) => {
       const data = snapshot.val();
       if (data) {
-        const postList = Object.values(data);
+        const postList = Object.values(data).reverse(); // Reverse the order of posts
         setPosts(postList);
       }
     });

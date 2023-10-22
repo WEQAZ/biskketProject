@@ -47,8 +47,6 @@ const PostPic = ({ user }) => {
     setCaption("");
   };
 
-
-
   return (
     <div className="PostPicContainer">
       <div className="PostPicCookie"></div>
@@ -66,19 +64,23 @@ const PostPic = ({ user }) => {
 
       <div className="PostPicWhiteBox"></div>
       <p className="PostPicText">Post Picture</p>
-      <div className="PostPicBox">
-      <div className="ImageBox">
-      <input type="file" accept="image/*" onChange={handleFileChange} />
-      <textarea
-        placeholder="Add a caption..."
-        value={caption}
-        onChange={(e) => setCaption(e.target.value)}
-      />
-      <button onClick={handlePostSubmit}>Post</button>
-      {file && <img src={URL.createObjectURL(file)} alt="Image Preview" />}
-    </div>
-        
-    </div>
+
+      <div className="post-img-box">
+        {file ? (
+          <img src={URL.createObjectURL(file)} alt="Image Preview" />
+        ) : (
+          <img src={postpicimage} />
+        )}
+        <textarea
+          placeholder="Add a caption..."
+          value={caption}
+          onChange={(e) => setCaption(e.target.value)}
+        />
+        <input type="file" accept="image/*" onChange={handleFileChange} />
+        <Link to="/MainPost">
+          <button onClick={handlePostSubmit}>Post</button>
+        </Link>
+      </div>
     </div>
   );
 };

@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=VT323:wght@100;400&display=swap');
 
 .mainPostContainer {
-    margin: auto;
+    margin: 0;
     width: 1920px;
     height: auto;
     background-color: rgba(245, 234, 220, 1);
@@ -13,6 +13,7 @@
        height: 225px;
        position: fixed;
        width: 1920px;
+       margin: 0;
        z-index: 1;
 }
 
@@ -21,8 +22,7 @@
     width: 1920px;
     height: 225px;
     position: relative;
-    margin-top: 0;
-    margin-left: 0;
+    margin: 0;
     display: inline;
 }
 
@@ -144,9 +144,13 @@
     margin-top: 125px;
     padding-left: 3px;
     /* height: 5000px; */
-    position: relative;
+    position: sticky;
     /* z-index: 0; */
+    left: 0px;
+    right: 0px;
     /* background-color: aquamarine; */
+    overflow-y: scroll;
+    
 }
 
 .mainPostPic {
@@ -186,6 +190,7 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 15px;
+    width: 800px;
 }
 
 .mainPostProfile {
