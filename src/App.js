@@ -47,9 +47,13 @@ const App = () => {
           path="/CreatePost"
           element={<CreatePost user={user} posts={posts} setPosts={setPosts} />}
         />
+       <Route 
+  path="/PostPic"
+  element={<PostPic user={user} posts={posts} setPosts={setPosts} />}
+/>
+        
       <Route path='FriendProfile' element={<FriendProfile/>}> </Route>
       <Route path='OwnProfile' element={<OwnProfile/>}> </Route>
-      <Route path='PostPic' element={<PostPic/>}> </Route>
       <Route path='*' element={<NotFound/>}></Route>
     </Routes>
    </BrowserRouter>

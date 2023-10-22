@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect,useState } from "react";
 import "./CreatePost.css";
 import logo from "../KK/assets/logo.png";
 import home from "../KK/assets/home.png";
 import pencil from "../KK/assets/pencil.png";
 import { Link } from "react-router-dom";
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import { getDatabase, ref, push } from "firebase/database"; // Import database functions
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { getDatabase, ref,onValue, push } from "firebase/database"; // Import database functions
+import PostPic from "./PostPic"; // Import the new component
 
-const CreatePost = ({ user, posts, setPosts }) => {
+const CreatePost = ({ user }) => {
   const [postContent, setPostContent] = useState("");
   const db = getDatabase();
 
