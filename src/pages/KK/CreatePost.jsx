@@ -50,6 +50,7 @@ const CreatePost = ({ user }) => {
       <img className="CreatePostPencil" src={pencil}></img>
       <div className="WritePostBox">
         <textarea
+          placeholder="What do you thinking..."
           value={postContent}
           onChange={(e) => setPostContent(e.target.value)}
         />
