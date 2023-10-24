@@ -28,36 +28,46 @@ const App = () => {
       setUser(user);
     });
 
-    // Cleanup the subscription when the component unmounts
+    // Fetch posts from the database
+    // Initialize posts with your data fetching logic
+    // You can fetch the initial data from the Firebase Realtime Database here
+    const initialPosts = [/* Your initial posts here */];
+    setPosts(initialPosts);
+
     return () => unsubscribe();
   }, [auth]);
 
+  const updatePosts = (newPosts) => {
+    setPosts(newPosts);
+  };
  
 
   return (
-   <BrowserRouter>
-    <Routes>
-      <Route path='/' element={<Home/>}></Route>
-      <Route path='SignIn' element={<SignIn/>}> </Route>
-      <Route
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='SignIn' element={<SignIn />} />
+        <Route
           path="/MainPost"
-          element={<MainPost user={user} posts={posts} />}
+          element={<MainPost user={user} posts={posts} updatePosts={updatePosts} />}
         />
         <Route
           path="/CreatePost"
           element={<CreatePost user={user} posts={posts} setPosts={setPosts} />}
         />
-       <Route 
-  path="/PostPic"
-  element={<PostPic user={user} posts={posts} setPosts={setPosts} />}
-/>
-        
-      <Route path='FriendProfile' element={<FriendProfile/>}> </Route>
-      <Route path='OwnProfile' element={<OwnProfile/>}> </Route>
-      <Route path='*' element={<NotFound/>}></Route>
-    </Routes>
-   </BrowserRouter>
+        <Route
+          path="/PostPic"
+          element={<PostPic user={user} posts={posts} setPosts={setPosts} />}
+        />
+        <Route path="/FriendProfile" element={<FriendProfile />} />
+        <Route
+          path="/OwnProfile"
+          element={<OwnProfile user={user} posts={posts} updatePosts={updatePosts} />}
+        />
+        <Route path='*' element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
