@@ -72,6 +72,7 @@ const OwnProfile = () => {
       <div className="UserPosts">
         {userPosts.map((post, index) => (
           <div key={index} className="UserPost">
+              <div className="mainTextPangolinUser">{post.user}</div>
             {post.mediaURL && <img src={post.mediaURL} alt="Posted Image" />}
             <div className="UserPostCaption">{post.content}</div>
             <div className="UserPostTimestamp">Posted at: {post.timestamp}</div>
