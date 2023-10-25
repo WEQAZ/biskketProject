@@ -1,12 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import "./OwnProfile.css";
 import logo from "../KK/assets/logo.png";
 import home from "../KK/assets/home.png";
 import userprofile from "../KK/assets/userprofile.png";
 import like from "../KK/assets/like.png";
 import { Link } from "react-router-dom";
-import { getAuth, onAuthStateChanged } from 'firebase/auth';
-import { getDatabase, ref, onValue, query, orderByChild, equalTo ,remove} from "firebase/database";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import {
+  getDatabase,
+  ref,
+  onValue,
+  query,
+  orderByChild,
+  equalTo,
+  remove,
+} from "firebase/database";
 
 const OwnProfile = () => {
   const [username, setUsername] = useState(null);
@@ -21,12 +29,24 @@ const OwnProfile = () => {
         setUsername(userUsername);
 
         const postsRef = ref(db, "posts");
-        const userPostsQuery = query(postsRef, orderByChild("user"), equalTo(userUsername));
+        const userPostsQuery = query(
+          postsRef,
+          orderByChild("user"),
+          equalTo(userUsername)
+        );
+        // Inside the onValue callback
         onValue(userPostsQuery, (snapshot) => {
           const data = snapshot.val();
           if (data) {
-            const userPostList = Object.entries(data).map(([key, value]) => ({ key, ...value }));
-            setUserPosts(userPostList);
+            const userPostList = Object.entries(data).map(([key, value]) => ({
+              key,
+              ...value,
+            }));
+
+            // Reverse the order of userPostList
+            const reversedUserPostList = userPostList.reverse();
+
+            setUserPosts(reversedUserPostList);
           }
         });
       } else {
@@ -43,13 +63,14 @@ const OwnProfile = () => {
     remove(postRef)
       .then(() => {
         // Remove the deleted post from the userPosts state
-        setUserPosts((prevUserPosts) => prevUserPosts.filter((post) => post.key !== postKey));
+        setUserPosts((prevUserPosts) =>
+          prevUserPosts.filter((post) => post.key !== postKey)
+        );
       })
       .catch((error) => {
         console.error("Error deleting post:", error);
       });
   };
-
 
   return (
     <div className="OwnProfileContainer">
@@ -64,15 +85,18 @@ const OwnProfile = () => {
         <p class="HomeText">HOME</p>
       </Link>
 
-      <div className="UserBox"></div>
-      <img className="UserImage" src={userprofile}></img>
-      <div className="UserText">{username}</div>
-      <div className="EditProfileButton"></div>
-      <div className="EditProfileText">edit profile</div>
-      <div className="UserPosts">
+      <div className="UserBox">
+        <img className="UserImage" src={userprofile}></img>
+        <div className="UserText">{username}</div>
+        {/* <div className="EditProfileButton"></div>
+        <div className="EditProfileText">edit profile</div> */}
+        <div className="UserPosts"></div>
+      </div>
+
+      <div className="scrollArea">
         {userPosts.map((post, index) => (
           <div key={index} className="UserPost">
-              <div className="mainTextPangolinUser">{post.user}</div>
+            <div className="mainTextPangolinUser">{post.user}</div>
             {post.mediaURL && <img src={post.mediaURL} alt="Posted Image" />}
             <div className="UserPostCaption">{post.content}</div>
             <div className="UserPostTimestamp">Posted at: {post.timestamp}</div>

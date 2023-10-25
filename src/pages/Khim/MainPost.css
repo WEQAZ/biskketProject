@@ -11,7 +11,7 @@
        background-image: url(./picture/toolBar.png);
        height: 225px;
        position: fixed;
-       width: 1920px;
+       width: 3000px;
        margin: 0;
        z-index: 1;
 }
@@ -94,13 +94,12 @@
     position: fixed;
     margin-top: 68px;
     margin-left: 1412px;
-    font-size: 48px;
-    padding-bottom: 25px;
+    font-size: 40px;
+    padding: 15px;
     display: flex;
     align-items: last baseline;
     justify-content: center;
     text-align: center;
-    gap: 20;
     z-index: 1;
 }
 
@@ -141,13 +140,11 @@
     padding-top: 72px;
     margin-top: 125px;
     padding-left: 3px;
-    /* height: 5000px; */
     position: sticky;
-    /* z-index: 0; */
     left: 0px;
     right: 0px;
-    /* background-color: aquamarine; */
     overflow-y: scroll;
+    max-height: 800px;
     
 }
 

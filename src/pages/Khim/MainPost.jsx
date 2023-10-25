@@ -28,7 +28,6 @@ const About = () => {
         setUsername(null);
       }
     });
-    
 
     // Fetch posts from the database
     const postsRef = ref(db, "posts");
@@ -46,9 +45,7 @@ const About = () => {
   return (
     <div className="mainPostContainer">
       <div className="mainToolBar">
-        <div className="mainImg">
-          .
-        </div>
+        <div className="mainImg">.</div>
         <Link to="/">
           <div class="mainLogo">
             <img
@@ -119,18 +116,20 @@ const About = () => {
         </div>
 
         <div className="mainScrollArea">
-          
-        <div className="mainPostText">
-  {posts.map((post, index) => (
-    <div key={index} className="PostText">
-      <div className="mainTextPangolinUser">{post.user}</div>
-      {post.mediaURL && <img src={post.mediaURL} alt="Posted Image" />}
-      <div className="mainTextPangolinCaption">{post.content}</div>
-      <div className="mainTextTimestamp">Posted at: {post.timestamp}</div>
-    </div>
-  ))}
-</div>
-
+          <div className="mainPostText">
+            {posts.map((post, index) => (
+              <div key={index} className="PostText">
+                <div className="mainTextPangolinUser">{post.user}</div>
+                {post.mediaURL && (
+                  <img src={post.mediaURL} alt="Posted Image" />
+                )}
+                <div className="mainTextPangolinCaption">{post.content}</div>
+                <div className="mainTextTimestamp">
+                  Posted at: {post.timestamp}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

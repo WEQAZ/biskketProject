@@ -16,8 +16,11 @@ const Home = () => {
       </div>
       
       <Link to="SignIn" style={{ textDecoration: 'none' }}>
-        <div className="homeLogin">LOG IN</div>
+        <div className="signInbutton">
+          <div className="homeLogin">LOG IN</div>
         <div className="homeLoginBox"></div>
+        </div>
+        
       </Link>
       <div className="homeWelcomeText">
         WELCOME <br></br>

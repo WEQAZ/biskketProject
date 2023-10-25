@@ -1,8 +1,9 @@
+
 .signinBackGround{
     background-image: url(./picture/cookieBG.jpg);
     margin: auto;
     width: 1920px;
-    height: 1080px;
+    height: 1200px;
     flex-shrink: 0;
 }
 
