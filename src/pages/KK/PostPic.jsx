@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../Khim/MainPost.css";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { getDatabase, ref as rtdbRef, push } from "firebase/database";
 import "./PostPic.css";
@@ -35,7 +36,7 @@ const PostPic = ({ user }) => {
       user: user.displayName,
       content: caption,
       mediaURL: downloadURL,
-      timestamp: new Date().toString(),
+      timestamp: new Date().toLocaleString(),
     };
 
     // Get a reference to the posts in the database and push the new post
