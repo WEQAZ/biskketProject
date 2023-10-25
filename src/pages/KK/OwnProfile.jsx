@@ -96,11 +96,16 @@ const OwnProfile = () => {
       <div className="scrollArea">
         {userPosts.map((post, index) => (
           <div key={index} className="UserPost">
+            <button
+              className="deletePost"
+              onClick={() => handleDeletePost(post.key)}
+            >
+              X
+            </button>
             <div className="mainTextPangolinUser">{post.user}</div>
             {post.mediaURL && <img src={post.mediaURL} alt="Posted Image" />}
             <div className="UserPostCaption">{post.content}</div>
             <div className="UserPostTimestamp">Posted at: {post.timestamp}</div>
-            <button onClick={() => handleDeletePost(post.key)}>Delete</button>
           </div>
         ))}
       </div>

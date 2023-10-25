@@ -163,6 +163,7 @@
     flex-direction: column;
     margin-top: 10px; /* Adjust this value as needed */
     margin-bottom: 46px;
+    padding: 5px;
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -174,6 +175,20 @@
 .PostsContainer {
     position: absolute;
     left: 20px;
+}
+
+.deletePost {
+    position: relative;
+    color: #503A2B;
+    font-family: 'Pangolin', cursive;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    background-color: #EFD3B4;
+    border: 1px solid #553D2D;
+    cursor: pointer;
+    left: 490px;
 }
 
 .FirstBox {
