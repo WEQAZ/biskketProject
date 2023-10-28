@@ -5,7 +5,7 @@ import home from "../KK/assets/home.png";
 import pencil from "../KK/assets/pencil.png";
 import { Link } from "react-router-dom";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { getDatabase, ref,onValue, push } from "firebase/database"; // Import database functions
+import { getDatabase, ref, push, update } from "firebase/database"; // Import database functions
 import PostPic from "./PostPic"; // Import the new component
 
 const CreatePost = ({ user }) => {
@@ -23,7 +23,8 @@ const CreatePost = ({ user }) => {
 
       // Get a reference to the posts in the database and push the new post
       const postsRef = ref(db, "posts");
-      push(postsRef, newPost);
+      const newPostRef = push(postsRef); // Create a new post reference with a unique key
+      update(newPostRef, newPost); // Update the post with data
 
       // Clear the post content
       setPostContent("");

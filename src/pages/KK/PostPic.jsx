@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../Khim/MainPost.css";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import { getDatabase, ref as rtdbRef, push } from "firebase/database";
+import { getDatabase, ref as rtdbRef, push, update } from "firebase/database";
 import "./PostPic.css";
 import logo from "../KK/assets/logo.png";
 import home from "../KK/assets/home.png";
@@ -41,12 +41,14 @@ const PostPic = ({ user }) => {
 
     // Get a reference to the posts in the database and push the new post
     const postsRef = rtdbRef(db, "posts");
-    push(postsRef, newPost);
+    const newPostRef = push(postsRef); // Create a new post reference with a unique key
+    update(newPostRef, newPost); // Update the post with data
 
     // Clear the form
     setFile(null);
     setCaption("");
   };
+
 
   return (
     <div className="PostPicContainer">

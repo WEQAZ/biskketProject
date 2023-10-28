@@ -11,15 +11,16 @@ import userPic from "./picture/user.png";
 import heartPic from "./picture/heart.png";
 import { Link } from "react-router-dom";
 import firebaseApp from "../../config";
-import { getDatabase, ref, onValue } from "firebase/database";
+import { getDatabase, ref, onValue ,update } from "firebase/database";
 
-const About = () => {
+const About = ({user}) => {
   const [username, setUsername] = useState(null);
   const [posts, setPosts] = useState([]);
+  const [commentText, setCommentText] = useState("");
   const db = getDatabase();
 
   useEffect(() => {
-    const auth = getAuth(); // Initialize Firebase Auth with your Firebase app instance
+    const auth = getAuth();
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         const userUsername = user.displayName;
@@ -28,27 +29,73 @@ const About = () => {
         setUsername(null);
       }
     });
-    
 
-    // Fetch posts from the database
     const postsRef = ref(db, "posts");
     onValue(postsRef, (snapshot) => {
       const data = snapshot.val();
       if (data) {
-        const postList = Object.values(data).reverse(); // Reverse the order of posts
-        setPosts(postList);
+        const postList = Object.entries(data).map(([key, post]) => ({
+          key,
+          ...post,
+        }));
+        setPosts(postList.reverse());
       }
     });
 
     return () => unsubscribe();
   }, []);
 
+  const handleLikePost = (post) => {
+    const likeId = user.uid;
+    const updatedPosts = [...posts];
+    const postIndex = updatedPosts.findIndex((p) => p.key === post.key);
+
+    if (postIndex !== -1) {
+      if (!updatedPosts[postIndex].likes) {
+        updatedPosts[postIndex].likes = {};
+      }
+
+      if (updatedPosts[postIndex].likes[likeId]) {
+        // User has already liked the post, so we can remove the like
+        delete updatedPosts[postIndex].likes[likeId];
+      } else {
+        // User hasn't liked the post, so we add a like
+        updatedPosts[postIndex].likes[likeId] = true;
+      }
+
+      // Update the post in the database
+      const postRef = ref(db, `posts/${post.key}`);
+      update(postRef, { likes: updatedPosts[postIndex].likes });
+    }
+  };
+
+  const handleAddComment = (post) => {
+    if (commentText.trim() !== "") {
+      const updatedPosts = [...posts];
+      const postIndex = updatedPosts.findIndex((p) => p.key === post.key);
+
+      if (postIndex !== -1) {
+        if (!updatedPosts[postIndex].comments) {
+          updatedPosts[postIndex].comments = [];
+        }
+
+        const newComment = {
+          user: user.displayName,
+          text: commentText,
+        };
+        updatedPosts[postIndex].comments.push(newComment);
+
+        // Update the post in the database
+        const postRef = ref(db, `posts/${post.key}`);
+        update(postRef, { comments: updatedPosts[postIndex].comments });
+      }
+    }
+  };
+
   return (
     <div className="mainPostContainer">
       <div className="mainToolBar">
-        <div className="mainImg">
-          .
-        </div>
+        <div className="mainImg">.</div>
         <Link to="/">
           <div class="mainLogo">
             <img
@@ -119,19 +166,46 @@ const About = () => {
         </div>
 
         <div className="mainScrollArea">
-          
         <div className="mainPostText">
-  {posts.map((post, index) => (
-    <div key={index} className="PostText">
-      <div className="mainTextPangolinUser">{post.user}</div>
-      {post.mediaURL && <img src={post.mediaURL} alt="Posted Image" />}
-      <div className="mainTextPangolinCaption">{post.content}</div>
-      <div className="mainTextTimestamp">Posted at: {post.timestamp}</div>
+        {posts.map((post, index) => (
+          <div key={index} className="PostText">
+            <div className="mainTextPangolinUser">{post.user}</div>
+            {post.mediaURL && (
+              <img src={post.mediaURL} alt="Posted Image" />
+            )}
+            <div className="mainTextPangolinCaption">{post.content}</div>
+            <div className="mainTextTimestamp">
+              Posted at: {post.timestamp}
+            </div>
+            {/* Like button */}
+            <button onClick={() => handleLikePost(post)}>
+              {post.likes && post.likes[username] ? "Unlike" : "Like"}
+            </button>
+            <span>
+              {post.likes ? Object.keys(post.likes).length : 0} likes
+            </span>
+            {/* Comment section */}
+            <div>
+              {post.comments &&
+                post.comments.map((comment, commentIndex) => (
+                  <div key={commentIndex}>
+                    <div className="mainTextPangolinUser">{comment.user}</div>
+                    <div className="mainTextPangolinCaption">{comment.text}</div>
+                  </div>
+                ))}
+            </div>
+            {/* Comment input */}
+            <input
+              type="text"
+              placeholder="Add a comment..."
+              value={commentText}
+              onChange={(e) => setCommentText(e.target.value)}
+            />
+            <button onClick={() => handleAddComment(post)}>Add Comment</button>
+          </div>
+        ))}
+      </div>
     </div>
-  ))}
-</div>
-
-        </div>
       </div>
     </div>
   );
