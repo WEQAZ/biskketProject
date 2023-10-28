@@ -166,21 +166,46 @@ const About = ({user}) => {
         </div>
 
         <div className="mainScrollArea">
-          <div className="mainPostText">
-            {posts.map((post, index) => (
-              <div key={index} className="PostText">
-                <div className="mainTextPangolinUser">{post.user}</div>
-                {post.mediaURL && (
-                  <img src={post.mediaURL} alt="Posted Image" />
-                )}
-                <div className="mainTextPangolinCaption">{post.content}</div>
-                <div className="mainTextTimestamp">
-                  Posted at: {post.timestamp}
-                </div>
-              </div>
-            ))}
+        <div className="mainPostText">
+        {posts.map((post, index) => (
+          <div key={index} className="PostText">
+            <div className="mainTextPangolinUser">{post.user}</div>
+            {post.mediaURL && (
+              <img src={post.mediaURL} alt="Posted Image" />
+            )}
+            <div className="mainTextPangolinCaption">{post.content}</div>
+            <div className="mainTextTimestamp">
+              Posted at: {post.timestamp}
+            </div>
+            {/* Like button */}
+            <button onClick={() => handleLikePost(post)}>
+              {post.likes && post.likes[username] ? "Unlike" : "Like"}
+            </button>
+            <span>
+              {post.likes ? Object.keys(post.likes).length : 0} likes
+            </span>
+            {/* Comment section */}
+            <div>
+              {post.comments &&
+                post.comments.map((comment, commentIndex) => (
+                  <div key={commentIndex}>
+                    <div className="mainTextPangolinUser">{comment.user}</div>
+                    <div className="mainTextPangolinCaption">{comment.text}</div>
+                  </div>
+                ))}
+            </div>
+            {/* Comment input */}
+            <input
+              type="text"
+              placeholder="Add a comment..."
+              value={commentText}
+              onChange={(e) => setCommentText(e.target.value)}
+            />
+            <button onClick={() => handleAddComment(post)}>Add Comment</button>
           </div>
-        </div>
+        ))}
+      </div>
+    </div>
       </div>
     </div>
   );

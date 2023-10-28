@@ -42,11 +42,6 @@ const App = () => {
   };
  
 
-<<<<<<< Updated upstream
-=======
-
-function App() {
->>>>>>> Stashed changes
   return (
     <BrowserRouter>
       <Routes>

@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 import React from 'react';
 import './signin.css';
 import logoboon from '../Boon/picture/logoboon.png';
@@ -22,45 +21,6 @@ const SignIn = () => {
     }
   };
 
-=======
-
-import "./signin.css";
-import logoboon from "../Boon/picture/logoboon.png";
-import { Link } from "react-router-dom";
-import { auth, provider } from "../../config";
-import { signInWithPopup } from "firebase/auth";
-import React, { useEffect, useState } from "react";
-
-const SignIn = () => {
-  const [user, setUser] = useState(null);
-  const handleClick = () => {
-    signInWithPopup(auth, provider)
-      .then((result) => {
-        const user = result.user;
-        setUser(user);
-        localStorage.setItem("email", user.email);
-        // You can also fetch and store the user's name here
-        // user.displayName will contain the user's name if available
-        if (user.displayName) {
-          localStorage.setItem("displayName", user.displayName);
-        }
-      })
-      .catch((error) => {
-        console.error("Error signing in:", error);
-      });
-  }
-
-  useEffect(() => {
-    const storedEmail = localStorage.getItem('email');
-    if (storedEmail) {
-      setUser({
-        email: storedEmail,
-        displayName: localStorage.getItem('displayName') || ""
-      });
-    }
-  }, []);
-  
->>>>>>> Stashed changes
   return (
     <div className="signinBackGround">
       <Link to="/">
@@ -74,13 +34,9 @@ const SignIn = () => {
       <div className="signinBox">
         <img className="signinLogo" src={logoboon} width="180px" height="120px" />
         <div className="signinLogo"></div>
-<<<<<<< Updated upstream
         <button className="signinGoogle" onClick={handleGoogleSignIn}>
           Sign in with Google
         </button>
-=======
-        <button className="signinGoogle"onClick={handleClick} >Signin with Google</button>
->>>>>>> Stashed changes
 
         <div className="signinText">
           Sign In To Enjoy<br></br> Biskket!
