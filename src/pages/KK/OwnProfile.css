@@ -94,18 +94,18 @@
     background: #FFF;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     top: 265px;
-    left: 700px;
-}
-
-.UserImage {
+    left: 1250px;
+  }
+  
+  .UserImage {
     width: 123px;
     height: 123px;
     position: absolute;
-    top: 290px;
-    left: 740px;
-}
-
-.UserText {
+    top: 20px; /* Adjust this value as needed */
+    left: 20px; /* Adjust this value as needed */
+  }
+  
+  .UserText {
     width: fit-content;
     height: fit-content;
     position: absolute;
@@ -116,22 +116,22 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    top: 280px;
-    left: 920px;
-}
-
-.EditProfileButton {
+    top: 15px; /* Adjust this value as needed */
+    left: 170px; /* Adjust this value as needed */
+  }
+  
+  .EditProfileButton {
     width: 270px;
     height: 55px;
     position: absolute;
     border-radius: 34px;
     background: #EFD3B4;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    left: 920px;
-    top: 360px;
-}
-
-.EditProfileText {
+    top: 100px; /* Adjust this value as needed */
+    left: 20px; /* Adjust this value as needed */
+  }
+  
+  .EditProfileText {
     width: 279px;
     height: 58px;
     position: absolute;
@@ -142,13 +142,53 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    left: 915px;
-    top: 370px;
-}
-
+    top: 100px; /* Adjust this value as needed */
+    left: 300px; /* Adjust this value as needed */
+  }
+  
+  /* Scrollable UserPosts container */
+  .scrollArea {
+    margin-left: 50px;
+    margin-top: 10px;
+    max-height: 800px; /* Set the desired maximum height */
+    overflow-y: auto;
+  }
+  
+  .UserPost {
+    width: 1000px;
+    height: auto;
+    border: 10px solid #D3BA9F;
+    background: #FFF;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px; /* Adjust this value as needed */
+    margin-bottom: 46px;
+    padding: 5px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 0;
+  }
+  
+  /* Add specific styles for UserPost elements as needed */
+  
 .PostsContainer {
     position: absolute;
     left: 20px;
+}
+
+.deletePost {
+    position: relative;
+    color: #503A2B;
+    font-family: 'Pangolin', cursive;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    background-color: #EFD3B4;
+    border: 1px solid #553D2D;
+    cursor: pointer;
+    left: 490px;
 }
 
 .FirstBox {
