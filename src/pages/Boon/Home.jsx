@@ -16,7 +16,8 @@ const Home = () => {
       </div>
       
       <Link to="SignIn" style={{ textDecoration: 'none' }}>
-        <div className="homeLogin">LOG IN</div><div className="homeLoginBox"></div>
+        <div className="homeLogin">LOG IN</div>
+        <div className="homeLoginBox"></div>
       </Link>
       <div className="homeWelcomeText">
         WELCOME <br></br>

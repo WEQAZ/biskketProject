@@ -6,26 +6,50 @@ import userprofile from "../KK/assets/userprofile.png";
 import like from "../KK/assets/like.png";
 import { Link } from "react-router-dom";
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
-
+import { getDatabase, ref, onValue, query, orderByChild, equalTo ,remove} from "firebase/database";
 
 const OwnProfile = () => {
   const [username, setUsername] = useState(null);
+  const [userPosts, setUserPosts] = useState([]);
+  const db = getDatabase();
 
   useEffect(() => {
-    const auth = getAuth(); // Assuming you have initialized Firebase Auth in a central location.
-    
+    const auth = getAuth();
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
-        // Assuming the user's username is stored in the user object's displayName.
         const userUsername = user.displayName;
         setUsername(userUsername);
+
+        const postsRef = ref(db, "posts");
+        const userPostsQuery = query(postsRef, orderByChild("user"), equalTo(userUsername));
+        onValue(userPostsQuery, (snapshot) => {
+          const data = snapshot.val();
+          if (data) {
+            const userPostList = Object.entries(data).map(([key, value]) => ({ key, ...value }));
+            setUserPosts(userPostList);
+          }
+        });
       } else {
         setUsername(null);
+        setUserPosts([]);
       }
     });
 
     return () => unsubscribe();
-  }, []);
+  }, [db]);
+
+  const handleDeletePost = (postKey) => {
+    const postRef = ref(db, `posts/${postKey}`);
+    remove(postRef)
+      .then(() => {
+        // Remove the deleted post from the userPosts state
+        setUserPosts((prevUserPosts) => prevUserPosts.filter((post) => post.key !== postKey));
+      })
+      .catch((error) => {
+        console.error("Error deleting post:", error);
+      });
+  };
+
 
   return (
     <div className="OwnProfileContainer">
@@ -45,30 +69,17 @@ const OwnProfile = () => {
       <div className="UserText">{username}</div>
       <div className="EditProfileButton"></div>
       <div className="EditProfileText">edit profile</div>
-
-      <div className="FirstBox"></div>
-      <div className="FirstImageBox"></div>
-      <div className="FirstCaption">This will be the caption</div>
-      <img className="FirstLikeImg" src={like}></img>
-      <div className="FirstNumberLikes">Likes : </div>
-
-      <div className="SecondBox"></div>
-      <div className="SecondImageBox"></div>
-      <div className="SecondCaption">This will be the caption</div>
-      <img className="SecondLikeImg" src={like}></img>
-      <div className="SecondNumberLikes">Likes : </div>
-
-      <div className="ThirdBox"></div>
-      <div className="ThirdCaptionBox"></div>
-      <div className="ThirdCaption">This will be the post caption</div>
-      <img className="ThirdLikeImg" src={like}></img>
-      <div className="ThirdNumberLikes">Likes : </div>
-
-      <div className="FourthBox"></div>
-      <div className="FourthImageBox"></div>
-      <div className="FourthCaption">This will be the caption</div>
-      <img className="FourthLikeImg" src={like}></img>
-      <div className="FourthNumberLikes">Likes : </div>
+      <div className="UserPosts">
+        {userPosts.map((post, index) => (
+          <div key={index} className="UserPost">
+              <div className="mainTextPangolinUser">{post.user}</div>
+            {post.mediaURL && <img src={post.mediaURL} alt="Posted Image" />}
+            <div className="UserPostCaption">{post.content}</div>
+            <div className="UserPostTimestamp">Posted at: {post.timestamp}</div>
+            <button onClick={() => handleDeletePost(post.key)}>Delete</button>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
