@@ -11,9 +11,9 @@ import userPic from "./picture/user.png";
 import heartPic from "./picture/heart.png";
 import { Link } from "react-router-dom";
 import firebaseApp from "../../config";
-import { getDatabase, ref, onValue ,update } from "firebase/database";
+import { getDatabase, ref, onValue, update } from "firebase/database";
 
-const About = ({user}) => {
+const About = ({ user }) => {
   const [username, setUsername] = useState(null);
   const [posts, setPosts] = useState([]);
   const [commentText, setCommentText] = useState("");
@@ -166,46 +166,69 @@ const About = ({user}) => {
         </div>
 
         <div className="mainScrollArea">
-        <div className="mainPostText">
-        {posts.map((post, index) => (
-          <div key={index} className="PostText">
-            <div className="mainTextPangolinUser">{post.user}</div>
-            {post.mediaURL && (
-              <img src={post.mediaURL} alt="Posted Image" />
-            )}
-            <div className="mainTextPangolinCaption">{post.content}</div>
-            <div className="mainTextTimestamp">
-              Posted at: {post.timestamp}
-            </div>
-            {/* Like button */}
-            <button onClick={() => handleLikePost(post)}>
-              {post.likes && post.likes[username] ? "Unlike" : "Like"}
-            </button>
-            <span>
-              {post.likes ? Object.keys(post.likes).length : 0} likes
-            </span>
-            {/* Comment section */}
-            <div>
-              {post.comments &&
-                post.comments.map((comment, commentIndex) => (
-                  <div key={commentIndex}>
-                    <div className="mainTextPangolinUser">{comment.user}</div>
-                    <div className="mainTextPangolinCaption">{comment.text}</div>
+          <div className="mainPostText">
+            {posts.map((post, index) => (
+              <div key={index} className="PostText">
+                <div className="">
+                  <div className="mainTextPangolinUser">{post.user}</div>
+                  <div className="mainTextTimestamp">
+                    Posted at: {post.timestamp}
                   </div>
-                ))}
-            </div>
-            {/* Comment input */}
-            <input
-              type="text"
-              placeholder="Add a comment..."
-              value={commentText}
-              onChange={(e) => setCommentText(e.target.value)}
-            />
-            <button onClick={() => handleAddComment(post)}>Add Comment</button>
+                  <div className="mainContent">
+                    <div className="polaroid">
+                    
+                      {post.mediaURL && (
+                        <img src={post.mediaURL} alt="Posted Image" />
+                      )}
+                      <div className="mainTextPangolinCaption">
+                         {post.content} 
+                      </div>
+
+                      <div className="mainLike">
+                        <img src={heartPic} />
+                        <div className="optionLike">
+                          {post.likes ? Object.keys(post.likes).length : 0}
+                          <button onClick={() => handleLikePost(post)}>
+                            {post.likes && post.likes[username]
+                              ? "Unlike"
+                              : "Like"}
+                          </button>
+                        </div>
+                      </div>
+
+                     
+                    </div>
+
+                    {/* Like button */}
+
+                    {/* Comment input */}
+                    <input
+                      type="text"
+                      placeholder="Add a comment..."
+                      value={commentText}
+                      onChange={(e) => setCommentText(e.target.value)}
+                    />
+                    <button onClick={() => handleAddComment(post)}>
+                      Add Comment
+                    </button>
+                    {/* Comment section */}
+                    <div className="commentBox">
+                      {post.comments &&
+                        post.comments.map((comment, commentIndex) => (
+                          <div key={commentIndex}>
+                            <div className="mainTextPangolinUsr">
+                              {comment.user}
+                            </div>
+                            <div className="commentText">{comment.text}</div>
+                          </div>
+                        ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-    </div>
+        </div>
       </div>
     </div>
   );

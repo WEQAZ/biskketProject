@@ -169,6 +169,10 @@
     text-align: center;
     z-index: 0;
   }
+
+  .UserPost img {
+    max-width: 900px;
+  }
   
   /* Add specific styles for UserPost elements as needed */
   

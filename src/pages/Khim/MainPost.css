@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=VT323:wght@100;400&display=swap');
 
 .mainPostContainer {
-    height: auto;
+    height: 2000px;
     background-color: rgba(245, 234, 220, 1);
     
 }
@@ -33,15 +33,69 @@
 .mainTextPangolinUsr {
     color: #553D2D;
     font-family: 'Pangolin', sans-serif;
-    padding-top: 33px;
-    padding-left: 10px;
+    padding-top: 10px;
 }
 
 
 .mainTextPangolinUser {
-    color: #553D2D;
-    font-family: 'Pangolin', sans-serif;
-    font-size: 36px;
+    position: relative;
+    color: black;
+    font-family: sans-serif;
+    font-size: 32px;
+    font-weight: 300;
+    text-shadow: 1px 1px #c9936e;
+    
+}
+
+.mainContent {
+    position: relative;
+    left: 30px;
+}
+
+.mainContent img {
+    /* margin-top: 15px; */
+}
+
+.mainContent button {
+    background-color: #d6c9bb;
+}
+
+.commentBox {
+    margin-left: 20px;
+}
+
+.commentText {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 15px;
+}
+
+.mainLike img {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    z-index: 0;
+}
+
+.mainLike div {
+    position: relative;
+    top: -45px;
+    left: 15px;
+    z-index: 1;
+    color: white;
+    font-weight: 500;
+}
+
+.PostText {
+    position: relative;
+    border: 10px solid #D3BA9F;
+    background: #FFF;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    max-width: 890px;
+}
+
+.PostText div {
+    /* padding:5px; */
 }
 
 .mainTextPangolinCaption {
@@ -49,8 +103,9 @@
     font-family: 'Pangolin', sans-serif;
     font-size: 22px;
     padding-top: 10px;
-    padding-left: 30px;
+    padding-left: 10px;
     padding-right: 30px;
+    text-align: center;
 }
 
 .mainTextPangolinLike {
@@ -65,6 +120,14 @@
     font-size: 72px;
     padding-top: 20px;
   
+}
+
+.optionLike button{
+    margin-left: 20px;
+}
+
+.polaroid {
+    margin-top: 20px;
 }
 
 .mainLogo {
@@ -144,7 +207,7 @@
     left: 0px;
     right: 0px;
     overflow-y: scroll;
-    max-height: 800px;
+    max-height: 1000px;
     
 }
 
@@ -162,31 +225,24 @@
     text-align: center;
 }
 
-.mainPostText {
-    left: 84px;
-    width: 1000px;
-    height: auto;
-    margin-top: 0;
-    border: 10px solid #D3BA9F;
-    background: #FFF;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    margin-bottom: 46px;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    z-index: 0;
-}
-
 .PostText {
+    position: relative;
+    left: 84px;
     border: 10px solid #D3BA9F;
     background: #FFF;
     display: flex;
     flex-direction: column;
     margin-bottom: 15px;
     max-width: 900px;
+    padding: 10px;
 }
+
+.PostText img {
+    max-width: 850px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
 
 .mainPostProfile {
     width: 474px;
@@ -222,4 +278,10 @@
     display: flex;
     gap: 10px;
     /* background-color: brown; */
+}
+
+.mainTextTimestamp {
+    font-family: sans-serif;
+    font-size: 17px;
+    color: #553D2D;
 }
