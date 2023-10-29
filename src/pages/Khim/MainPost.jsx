@@ -18,7 +18,7 @@ const About = ({ user }) => {
   const [posts, setPosts] = useState([]);
   const [commentText, setCommentText] = useState("");
   const db = getDatabase();
-
+  
   useEffect(() => {
     const auth = getAuth();
     const unsubscribe = onAuthStateChanged(auth, (user) => {
