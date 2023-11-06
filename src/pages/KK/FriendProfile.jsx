@@ -10,13 +10,13 @@ const FriendProfile = () => {
   return (
     <div className="FriendProfileContainer">
       <div className="FriendProfileCookie"></div>
-      <Link to="/MainPost">
+      <Link to="/piyawut_b/MainPost">
         <div className="FriendProfileLogoBox"></div>
         <div className="FriendProfileHomeBox"></div>
         <img className="FriendProfileLogo" src={logo}></img>
         <p class="BiskketText">BISKKET</p>
       </Link>
-      <Link to="/MainPost">
+      <Link to="/piyawut_b/MainPost">
         <img className="FriendProfileHome" src={home}></img>
         <p class="HomeText">HOME</p>
       </Link>

@@ -1,6 +1,7 @@
 {
   "name": "biskket",
   "version": "0.1.0",
+  "homepage": "https://myweb.cmu.ac.th/piyawut_b/",
   "private": true,
   "dependencies": {
     "@babel/core": "^7.23.2",

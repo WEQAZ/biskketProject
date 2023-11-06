@@ -8,20 +8,20 @@ const Home = () => {
     <div className="homeBackground">
       <div className="homeBiskketLogo">
         <div className="homeLogoBox"></div>
-        
+
         <div className="homeLogoName">
           <img src={logoboon} width="93px" height="88px" />
           BISKKET
         </div>
       </div>
-      
-      <Link to="SignIn" style={{ textDecoration: 'none' }}>
-        <div className="signInbutton">
-          <div className="homeLogin">LOG IN</div>
-        <div className="homeLoginBox"></div>
-        </div>
+
+      <div className="signInbutton">
+        <Link to="/piyawut_b/SignIn" style={{ textDecoration: "none" }}>
+          <div className="homeLogin">LOG IN</div></Link>
+          <div className="homeLoginBox"></div>
         
-      </Link>
+      </div>
+
       <div className="homeWelcomeText">
         WELCOME <br></br>
         TO <br></br>

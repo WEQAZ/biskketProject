@@ -76,7 +76,7 @@ const OwnProfile = () => {
     <div className="OwnProfileContainer">
       <div className="OwnProfileCookie"></div>
 
-      <Link to="/MainPost">
+      <Link to="/piyawut_b/MainPost">
         <div className="OwnProfileLogoBox"></div>
         <div className="OwnProfileHomeBox"></div>
         <img className="OwnProfileLogo" src={logo}></img>

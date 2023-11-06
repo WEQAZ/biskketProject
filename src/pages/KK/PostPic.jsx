@@ -53,14 +53,14 @@ const PostPic = ({ user }) => {
   return (
     <div className="PostPicContainer">
       <div className="PostPicCookie"></div>
-      <Link to="/MainPost">
+      <Link to="/piyawut_b/MainPost">
         <div className="PostPicLogoBox"></div>
         <div className="PostPictHomeBox"></div>
         <img className="PostPicLogo" src={logo}></img>
         <p class="BiskketText">BISKKET</p>
       </Link>
 
-      <Link to="/MainPost">
+      <Link to="/piyawut_b/MainPost">
         <img className="PostPicHome" src={home}></img>
         <p class="HomeText">HOME</p>
       </Link>
@@ -80,7 +80,7 @@ const PostPic = ({ user }) => {
           onChange={(e) => setCaption(e.target.value)}
         />
         <input type="file" accept="image/*" onChange={handleFileChange} />
-        <Link to="/MainPost">
+        <Link to="/piyawut_b/MainPost">
           <button onClick={handlePostSubmit}>Post</button>
         </Link>
       </div>

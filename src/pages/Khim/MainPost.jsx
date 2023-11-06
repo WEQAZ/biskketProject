@@ -18,7 +18,7 @@ const About = ({ user }) => {
   const [posts, setPosts] = useState([]);
   const [commentText, setCommentText] = useState("");
   const db = getDatabase();
-  
+
   useEffect(() => {
     const auth = getAuth();
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -46,16 +46,19 @@ const About = ({ user }) => {
   }, []);
 
   const handleLikePost = (post) => {
-    const likeId = user.uid;
-    const updatedPosts = [...posts];
-    const postIndex = updatedPosts.findIndex((p) => p.key === post.key);
+    const likeId = user.uid; //retrieves the unique user ID of the currently logged-in user
+    const updatedPosts = [...posts]; // construct array of post
+    const postIndex = updatedPosts.findIndex((p) => p.key === post.key); // This line finds the index of the post that the user is trying to like or unlike
 
     if (postIndex !== -1) {
+      // if the post exists
       if (!updatedPosts[postIndex].likes) {
+        //if empty create like
         updatedPosts[postIndex].likes = {};
       }
 
       if (updatedPosts[postIndex].likes[likeId]) {
+        // likeId
         // User has already liked the post, so we can remove the like
         delete updatedPosts[postIndex].likes[likeId];
       } else {
@@ -70,24 +73,36 @@ const About = ({ user }) => {
   };
 
   const handleAddComment = (post) => {
+    // Check if the comment text is not empty (contains non-whitespace characters)
     if (commentText.trim() !== "") {
+      // Create a copy of the posts array to avoid directly modifying the state
       const updatedPosts = [...posts];
+
+      // Find the index of the selected post in the updatedPosts array
       const postIndex = updatedPosts.findIndex((p) => p.key === post.key);
 
+      // Check if the post exists in the updatedPosts array
       if (postIndex !== -1) {
+        // Initialize the 'comments' property if it doesn't already exist
         if (!updatedPosts[postIndex].comments) {
           updatedPosts[postIndex].comments = [];
         }
 
+        // Create a new comment object with the user's display name and comment text
         const newComment = {
           user: user.displayName,
           text: commentText,
         };
+
+        // Add the new comment to the 'comments' array of the selected post
         updatedPosts[postIndex].comments.push(newComment);
 
-        // Update the post in the database
+        // Update the post in the Firebase Realtime Database with the new comments
         const postRef = ref(db, `posts/${post.key}`);
         update(postRef, { comments: updatedPosts[postIndex].comments });
+
+        // Clear the comment input field
+        setCommentText("");
       }
     }
   };
@@ -96,7 +111,7 @@ const About = ({ user }) => {
     <div className="mainPostContainer">
       <div className="mainToolBar">
         <div className="mainImg">.</div>
-        <Link to="/">
+        <Link to="/piyawut_b">
           <div class="mainLogo">
             <img
               src={biskketLogo}
@@ -108,7 +123,7 @@ const About = ({ user }) => {
           </div>
         </Link>
 
-        <Link to="/OwnProfile">
+        <Link to="/piyawut_b/OwnProfile">
           <div class="mainButtonToProfile">
             <div className="mainTextVT323">Hi!</div>
             <div className="mainTextPangolinUsr">{username}</div>
@@ -117,7 +132,7 @@ const About = ({ user }) => {
 
         <div className="mainArea">
           <div className="mainFeatureBar">
-            <Link to="/CreatePost" style={{ textDecoration: "none" }}>
+            <Link to="/piyawut_b/CreatePost" style={{ textDecoration: "none" }}>
               <div className="mainButtonToNext">
                 <img
                   src={iconPencil}
@@ -129,7 +144,7 @@ const About = ({ user }) => {
               </div>
             </Link>
 
-            <Link to="/PostPic" style={{ textDecoration: "none" }}>
+            <Link to="/piyawut_b/PostPic" style={{ textDecoration: "none" }}>
               <div className="mainButtonToNext">
                 <img
                   src={iconCamera}
@@ -151,7 +166,10 @@ const About = ({ user }) => {
               <div className="mainTextPangolin"> Post Video </div>
             </div>
 
-            <Link to="/FriendProfile" style={{ textDecoration: "none" }}>
+            <Link
+              to="/piyawut_b/FriendProfile"
+              style={{ textDecoration: "none" }}
+            >
               <div className="mainButtonToNext">
                 <img
                   src={iconCookies}
@@ -176,13 +194,13 @@ const About = ({ user }) => {
                   </div>
                   <div className="mainContent">
                     <div className="polaroid">
-                    
                       {post.mediaURL && (
                         <img src={post.mediaURL} alt="Posted Image" />
                       )}
                       <div className="mainTextPangolinCaption">
-                         {post.content} 
+                        {post.content}
                       </div>
+                      {/* Like button */}
 
                       <div className="mainLike">
                         <img src={heartPic} />
@@ -195,11 +213,7 @@ const About = ({ user }) => {
                           </button>
                         </div>
                       </div>
-
-                     
                     </div>
-
-                    {/* Like button */}
 
                     {/* Comment input */}
                     <input

@@ -35,12 +35,15 @@ const CreatePost = ({ user }) => {
     <div className="CreatePostContainer">
       <div className="CreatePostCookie"></div>
 
-      <div className="CreatePostLogoBox"></div>
+      <Link to="/piyawut_b/MainPost">
+        <div className="CreatePostLogoBox"></div>
       <div className="CreatePostHomeBox"></div>
       <img className="CreatePostLogo" src={logo}></img>
       <p class="BiskketText">BISKKET</p>
+      </Link>
+      
 
-      <Link to="/MainPost">
+      <Link to="/piyawut_b/MainPost">
         <img className="CreatePostHome" src={home}></img>
         <p class="HomeText">HOME</p>
       </Link>
@@ -56,7 +59,7 @@ const CreatePost = ({ user }) => {
           onChange={(e) => setPostContent(e.target.value)}
         />
       </div>
-      <Link to="/MainPost">
+      <Link to="/piyawut_b/MainPost">
         <div onClick={handlePostSubmit}>
           <div className="PostPicButton"></div>
         <p class="PostPicButtonText">POST</p>

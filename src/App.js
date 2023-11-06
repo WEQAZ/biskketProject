@@ -14,7 +14,6 @@ import FriendProfile from './pages/KK/FriendProfile'
 import OwnProfile from './pages/KK/OwnProfile'
 import PostPic from './pages/KK/PostPic'
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
-import { initializeApp } from 'firebase/app';
 
 
 const App = () => {
@@ -45,23 +44,23 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='SignIn' element={<SignIn />} />
+        <Route path='/piyawut_b' element={<Home />} />
+        <Route path='/piyawut_b/SignIn' element={<SignIn />} />
         <Route
-          path="/MainPost"
+          path='/piyawut_b/MainPost'
           element={<MainPost user={user} posts={posts} updatePosts={updatePosts} />}
         />
         <Route
-          path="/CreatePost"
+          path='/piyawut_b/CreatePost'
           element={<CreatePost user={user} posts={posts} setPosts={setPosts} />}
         />
         <Route
-          path="/PostPic"
+          path='/piyawut_b/PostPic'
           element={<PostPic user={user} posts={posts} setPosts={setPosts} />}
         />
-        <Route path="/FriendProfile" element={<FriendProfile />} />
+        <Route path='/piyawut_b/FriendProfile' element={<FriendProfile />} />
         <Route
-          path="/OwnProfile"
+          path='/piyawut_b/OwnProfile'
           element={<OwnProfile user={user} posts={posts} updatePosts={updatePosts} />}
         />
         <Route path='*' element={<NotFound />} />

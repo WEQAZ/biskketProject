@@ -15,7 +15,7 @@ const SignIn = () => {
     try {
       await signInWithPopup(auth, googleProvider);
       // After successful login, you can redirect the user to the main post page
-      navigate('/MainPost'); // Use the navigate function to navigate
+      navigate("/piyawut_b/MainPost"); // Use the navigate function to navigate
     } catch (error) {
       console.error('Google Sign-In Error:', error);
     }
@@ -23,7 +23,7 @@ const SignIn = () => {
 
   return (
     <div className="signinBackGround">
-      <Link to="/">
+      <Link to="/piyawut_b">
         <div className="signinLogoBox">
           <div className="signinBiskketLogo">
             <img src={logoboon} width="93px" height="88px" />
